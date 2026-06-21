@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>澳客 · 简明的访问引导与产品要点</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(125deg, #fbe7d2 0%, #f7d5b6 45%, #f1c8a3 100%);
+            font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+            padding: 2rem 1.5rem;
+            line-height: 1.6;
+            color: #3d2e22;
+        }
+        .container {
+            max-width: 860px;
+            width: 100%;
+            background: rgba(255, 247, 238, 0.92);
+            backdrop-filter: blur(2px);
+            border-radius: 40px;
+            padding: 2.8rem 2.5rem;
+            box-shadow: 0 18px 40px -12px rgba(140, 80, 40, 0.30), 0 8px 20px rgba(235, 190, 150, 0.25);
+            transition: all 0.25s;
+        }
+        @media (max-width: 600px) {
+            body { padding: 1rem 0.8rem; }
+            .container { padding: 2rem 1.3rem; border-radius: 28px; }
+        }
+        .hero {
+            margin-bottom: 2.2rem;
+        }
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            background: linear-gradient(to right, #7f4e2e, #b2744b);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.4rem;
+            line-height: 1.2;
+        }
+        .hero .sub {
+            font-size: 1.05rem;
+            color: #6b4d35;
+            background: rgba(235, 199, 168, 0.3);
+            display: inline-block;
+            padding: 0.2rem 1rem 0.2rem 0.9rem;
+            border-radius: 30px;
+            font-weight: 450;
+        }
+
+        .guide-note {
+            background: #faf0e6;
+            padding: 1.2rem 1.6rem;
+            border-radius: 28px;
+            margin: 1.8rem 0 2rem 0;
+            border-left: 6px solid #c89162;
+            font-size: 0.98rem;
+            box-shadow: inset 0 1px 4px rgba(0,0,0,0.02);
+        }
+        .guide-note strong {
+            color: #7f4a28;
+        }
+
+        .highlights {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.4rem 1.6rem;
+            margin: 2rem 0 2.2rem;
+        }
+        .highlight-item {
+            flex: 1 1 200px;
+            background: #fffbf7;
+            padding: 1.2rem 1.3rem 1.5rem;
+            border-radius: 30px;
+            box-shadow: 0 6px 14px rgba(150, 95, 55, 0.08);
+            transition: transform 0.1s ease;
+        }
+        .highlight-item:hover {
+            transform: translateY(-3px);
+            background: #fffcf9;
+        }
+        .highlight-item .icon {
+            font-size: 1.7rem;
+            line-height: 1;
+            margin-bottom: 0.2rem;
+        }
+        .highlight-item h3 {
+            font-size: 1.2rem;
+            font-weight: 570;
+            color: #6e442a;
+            margin-bottom: 0.6rem;
+        }
+        .highlight-item p {
+            font-size: 0.92rem;
+            color: #4f3a2a;
+        }
+
+        .scenario {
+            background: #f2e4d6;
+            padding: 1.5rem 1.8rem;
+            border-radius: 34px;
+            margin: 2rem 0 1.8rem;
+        }
+        .scenario h2 {
+            font-size: 1.4rem;
+            font-weight: 520;
+            color: #593f2b;
+            border-bottom: 2px dashed #cba67e;
+            padding-bottom: 0.3rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+        .scenario-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem 1.2rem;
+        }
+        .scenario-item {
+            background: #fffaf2;
+            padding: 0.9rem 1rem;
+            border-radius: 30px;
+            font-size: 0.94rem;
+            box-shadow: 0 2px 6px rgba(110, 65, 30, 0.06);
+        }
+        .scenario-item span {
+            font-weight: 500;
+            color: #7f4d2a;
+        }
+
+        .faq-mini {
+            background: #fff5ea;
+            border-radius: 30px;
+            padding: 1.5rem 1.8rem;
+            margin: 2rem 0 1.4rem;
+        }
+        .faq-mini h2 {
+            font-size: 1.3rem;
+            font-weight: 530;
+            color: #5b3f2a;
+            margin-bottom: 1rem;
+        }
+        .faq-q {
+            font-weight: 550;
+            color: #6d4025;
+            margin-top: 0.7rem;
+        }
+        .faq-a {
+            margin-left: 0.1rem;
+            color: #3f2f20;
+            font-size: 0.94rem;
+        }
+
+        .gentle-reminder {
+            font-size: 0.94rem;
+            background: #e5d5c4;
+            padding: 1rem 1.5rem;
+            border-radius: 44px;
+            color: #3a2b1e;
+            margin: 1.8rem 0 1.6rem;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.6rem 0.8rem;
+        }
+        .gentle-reminder a {
+            color: #5c3b21;
+            font-weight: 550;
+            text-decoration: none;
+            background: #fff8ef;
+            padding: 0.2rem 1rem;
+            border-radius: 50px;
+            transition: background 0.2s, box-shadow 0.2s;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+            white-space: nowrap;
+        }
+        .gentle-reminder a:hover,
+        .gentle-reminder a:focus {
+            background: #fff0e0;
+            box-shadow: 0 4px 8px rgba(130, 75, 35, 0.15);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-color: #ab7a54;
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 1.8rem;
+            font-size: 0.85rem;
+            color: #775e4a;
+            border-top: 1px solid #dac3ad;
+            padding-top: 1.2rem;
+            letter-spacing: 0.01em;
+        }
+        .footer-note a {
+            color: #6e492f;
+            text-decoration: none;
+            font-weight: 460;
+            border-bottom: 1px dotted #b68b69;
+        }
+        .footer-note a:hover {
+            border-bottom-style: solid;
+        }
+        .inline-link {
+            color: #7d4b2b;
+            font-weight: 480;
+            text-decoration: none;
+            background: #f2e2d2;
+            padding: 0.1rem 0.4rem;
+            border-radius: 14px;
+            transition: background 0.15s;
+        }
+        .inline-link:hover {
+            background: #e6ceb8;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <h1>澳客 · 简明访问导览</h1>
+            <div class="sub">产品要点 · 使用提醒 · 轻量指南</div>
+        </div>
+
+        <div class="guide-note">
+            <strong>✱ 关于澳客</strong> —— 它为特定场景提供相对清晰的信息呈现与功能入口。<br>
+            本页从实际使用角度整理了一些亮点与建议，避免多余包装，只讲值得了解的侧面。
+        </div>
+
+        <div class="highlights">
+            <div class="highlight-item">
+                <div class="icon">📋</div>
+                <h3>直接易读</h3>
+                <p>版面结构侧重信息层级，减少干扰。页面内关键模块一目了然，适合快速定位。</p>
+            </div>
+            <div class="highlight-item">
+                <div class="icon">🔍</div>
+                <h3>内容聚焦</h3>
+                <p>围绕主要功能区域展开，不堆积无关模块。每个分区都有实际指向，避免冗余。</p>
+            </div>
+            <div class="highlight-item">
+                <div class="icon">⚙️</div>
+                <h3>操作直觉</h3>
+                <p>常用入口与反馈路径设计贴近习惯。即便初次接触，也能在几秒内理解基本逻辑。</p>
+            </div>
+        </div>
+
+        <div class="scenario">
+            <h2>常见使用场景</h2>
+            <div class="scenario-grid">
+                <div class="scenario-item"><span>· 信息查阅</span> — 需要快速浏览分类内容或状态更新。</div>
+                <div class="scenario-item"><span>· 功能探索</span> — 对某个模块感兴趣，想进一步了解其运作方式。</div>
+                <div class="scenario-item"><span>· 日常使用</span> — 固定访问习惯，依赖稳定界面与一致的响应。</div>
+                <div class="scenario-item"><span>· 轻量参考</span> — 不需要复杂交互，以阅读和简单操作为主。</div>
+            </div>
+        </div>
+
+        <div class="faq-mini">
+            <h2>常见疑问摘要</h2>
+            <div class="faq-q">❓ 页面加载后如何快速找到重点？</div>
+            <div class="faq-a">主功能区通常位于首屏中间区域，导航标签清晰。可滚动查看各分区标题。</div>
+            <div class="faq-q">❓ 是否需要注册或额外步骤？</div>
+            <div class="faq-a">部分功能可能基于场景需要标识，但基础浏览无需强制注册。以实际页面提示为准。</div>
+            <div class="faq-q">❓ 移动端适配如何？</div>
+            <div class="faq-a">大部分版面已针对不同宽度做调整，按钮和文本在手机上也保持可读。如有异常可尝试横屏。</div>
+        </div>
+
+        <div class="gentle-reminder">
+            <span>💡 如果你希望直接了解 <a href="https://pc-home-aoke.com">澳客</a> 的具体内容与布局，可以从首页开始。本页仅为简洁介绍，所有说明均基于公开可见的设计特征，不构成绝对承诺。</span>
+        </div>
+
+        <p style="margin: 0.4rem 0 1.2rem; font-size: 0.95rem; background: #f2e4d6; padding: 0.6rem 1.2rem; border-radius: 30px; color: #4f3726;">
+            ⚖️ 建议：初次使用时，可先浏览整体框架，再逐步深入特定栏目。保持合理的访问节奏，留意页面自身的说明文字。
+        </p>
+
+        <div class="footer-note">
+            <span>基于实际体验整理 · 信息截止至近期版本  · 若有调整以 <a href="https://pc-home-aoke.com" style="border-bottom: 1px dotted #b68b69;">澳客</a> 页面为准</span>
+        </div>
+    </div>
+</body>
+</html>
